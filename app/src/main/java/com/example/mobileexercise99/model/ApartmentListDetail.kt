@@ -1,4 +1,4 @@
-package com.example.mobileexercise99.models.apartments
+package com.example.mobileexercise99.model
 
 data class ApartmentListDetail(
     val address: AddressDetails,
@@ -6,11 +6,11 @@ data class ApartmentListDetail(
     val description: String,
     val id: Int,
     val photo: String,
-    val projectName: String,
-    val propertyDetails: PropertyDetails
+    val project_name: String,
+    val property_details: PropertyDetails
 )
 data class AddressDetails(
-    val mapCoordinates: MapCoordinates,
+    val map_coordinates: MapCoordinates,
     val subtitle: String,
     val title: String
 )
@@ -21,7 +21,7 @@ data class MapCoordinates(
 )
 
 data class AttributeDetails(
-    val areaSize: Int,
+    val area_size: Int,
     val bathroom: Int,
     val bedrooms: Int,
     val price: Int
