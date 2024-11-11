@@ -44,6 +44,6 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainAct", "Received null data in apartmentList")
             }
         })
-        viewModel.getAllData()
+        viewModel.getAllList()
     }
 }

@@ -1,12 +1,16 @@
 package com.example.mobileexercise99.adapter
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.mobileexercise99.DetailActivity
 import com.example.mobileexercise99.R
 import com.example.mobileexercise99.model.ApartmentList
 
@@ -26,6 +30,7 @@ class ListingAdapter : RecyclerView.Adapter<ListingAdapter.ListingHolder>() {
         var itemCategoryTV: TextView = itemView.findViewById(R.id.itemCategoryTV)
         var itemAttributeTV: TextView = itemView.findViewById(R.id.itemAttributeTV)
         var itemPriceTV: TextView = itemView.findViewById(R.id.itemPriceTV)
+        val itemLL : LinearLayout = itemView.findViewById(R.id.itemLL)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListingHolder {
@@ -44,7 +49,14 @@ class ListingAdapter : RecyclerView.Adapter<ListingAdapter.ListingHolder>() {
         holder.itemAddressTV.text = item.address.street_name + " . " + item.address.district
         holder.itemCategoryTV.text = "Exec " + item.category + " . " + item.tenure + " yrs"
         holder.itemAttributeTV.text = item.attributes.bedrooms.toString() + " Beds . " + item.attributes.bathrooms.toString() + " Baths . " + item.attributes.area_size.toString() + " sqft"
-        holder.itemPriceTV.text = "$" + item.attributes.price.toString() + "/mo"
+        holder.itemPriceTV.text = "$" + String.format("%,d", item.attributes.price) + "/mo"
+
+        holder.itemLL.setOnClickListener{
+            val intent = Intent(it.context, DetailActivity::class.java)
+            intent.putExtra("id", item.id)
+            Log.d("item_id", item.id.toString())
+            it.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
