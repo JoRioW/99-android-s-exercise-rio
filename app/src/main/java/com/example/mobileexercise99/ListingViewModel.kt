@@ -9,20 +9,20 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ListingViewModel(private val repository: ListingRepository) : ViewModel() {
-    val apartmentList = MutableLiveData<List<ApartmentList>>()
+    val apartmentList = MutableLiveData<ArrayList<ApartmentList>>()
     val errorMessage = MutableLiveData<String>()
 
      fun getAllData() {
         val response = repository.getApartmentList()
-        response.enqueue(object : Callback<List<ApartmentList>> {
+        response.enqueue(object : Callback<ArrayList<ApartmentList>> {
             override fun onResponse(
-                p0: Call<List<ApartmentList>>,
-                p1: Response<List<ApartmentList>>
+                p0: Call<ArrayList<ApartmentList>>,
+                p1: Response<ArrayList<ApartmentList>>
             ) {
                 apartmentList.postValue(p1.body())
             }
 
-            override fun onFailure(p0: Call<List<ApartmentList>>, p1: Throwable) {
+            override fun onFailure(p0: Call<ArrayList<ApartmentList>>, p1: Throwable) {
                 errorMessage.postValue(p1.message)
             }
 

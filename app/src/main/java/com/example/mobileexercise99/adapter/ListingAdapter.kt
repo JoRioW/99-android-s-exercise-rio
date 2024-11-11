@@ -14,8 +14,8 @@ class ListingAdapter : RecyclerView.Adapter<ListingAdapter.ListingHolder>() {
 
     private var itemLists = ArrayList<ApartmentList>()
 
-    fun apartmentLists(itemList: List<ApartmentList>) {
-        this.itemLists = ArrayList(itemList)
+    fun apartmentLists(itemLists: List<ApartmentList>) {
+        this.itemLists = ArrayList(itemLists)
         notifyDataSetChanged()
     }
 

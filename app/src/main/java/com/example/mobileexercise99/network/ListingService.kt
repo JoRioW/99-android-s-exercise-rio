@@ -9,7 +9,7 @@ import retrofit2.http.GET
 
 interface ListingService {
     @GET("listings.json")
-    fun getApartmentList() : Call<List<ApartmentList>>
+    fun getApartmentList() : Call<ArrayList<ApartmentList>>
 
     companion object{
         var listingService: ListingService? = null
