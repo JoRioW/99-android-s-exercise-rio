@@ -26,6 +26,7 @@
                 android:layout_width="367dp"
                 android:layout_height="199dp"
                 android:layout_margin="12dp"
+                android:scaleType="centerCrop"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
