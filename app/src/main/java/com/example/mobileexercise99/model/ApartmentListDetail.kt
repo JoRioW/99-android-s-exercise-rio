@@ -2,12 +2,12 @@ package com.example.mobileexercise99.model
 
 data class ApartmentListDetail(
     val address: AddressDetails,
-    val attribute: AttributeDetails,
+    val attributes: AttributeDetails,
     val description: String,
     val id: Int,
     val photo: String,
     val project_name: String,
-    val property_details: PropertyDetails
+    val property_details: List<PropertyDetails>
 )
 data class AddressDetails(
     val map_coordinates: MapCoordinates,
